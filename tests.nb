@@ -1,0 +1,300 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10441,        291]
+NotebookOptionsPosition[     10099,        275]
+NotebookOutlinePosition[     10464,        291]
+CellTagsIndexPosition[     10421,        288]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", "\"\<SLNApproximations.m\>\"", "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"For", " ", "all", " ", 
+    RowBox[{"tests", "."}]}], " ", "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"R", " ", "=", " ", 
+   RowBox[{"10", "^", "5"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6568436684241657`*^9, 3.656843668874029*^9}, {
+  3.6568437112507*^9, 3.656843726735949*^9}, {3.65684424531654*^9, 
+  3.656844247082404*^9}, {3.65684465803017*^9, 3.656844658685639*^9}, {
+  3.656845328072124*^9, 3.656845335349867*^9}, {3.656849842112463*^9, 
+  3.656849842203188*^9}, {3.6568520457805557`*^9, 3.656852045970154*^9}, {
+  3.657286810442645*^9, 3.65728681126363*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Test", " ", "1"}], ":", " ", "n"}], "=", "2"}], ",", " ", 
+    RowBox[{"mu", "=", "0"}], ",", " ", 
+    RowBox[{"rho", "=", 
+     RowBox[{"-", "0.2"}]}], ",", " ", 
+    RowBox[{"sigma", "=", 
+     RowBox[{"[", 
+      RowBox[{"0.5", ",", "1"}], "]"}]}], ",", " ", 
+    RowBox[{"Ks", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"20", ",", "16"}], "}"}], "."}]}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"mu", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sigma", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], ",", " ", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"(", 
+            RowBox[{"2", "/", "10"}], ")"}]}], "*", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"1", "/", "2"}], "]"}]}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"(", 
+            RowBox[{"2", "/", "10"}], ")"}]}], "*", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"1", "/", "2"}], "]"}]}], ",", " ", "1"}], "}"}]}], 
+      "}"}]}], ";"}], "\n", 
+   RowBox[{"AssessEstimators", "[", 
+    RowBox[{
+    "mu", ",", " ", "sigma", ",", " ", "R", ",", " ", "\"\<d1.pdf\>\"", ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"20", ",", "16"}], "}"}]}], "]"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Test", " ", "2"}], ":", " ", "n"}], "=", "2"}], ",", " ", 
+     RowBox[{"mu", "=", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}]}], ",", " ", 
+     RowBox[{"rho", "=", "0.5"}], ",", " ", 
+     RowBox[{"sigma", "=", "1"}], ",", " ", 
+     RowBox[{"Ks", "=", 
+      RowBox[{"{", 
+       RowBox[{"32", ",", " ", "16"}], "}"}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"mu", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "2"}], ",", 
+       RowBox[{"1", "/", "2"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sigma", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", " ", 
+         RowBox[{"1", "/", "2"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], ",", " ", "1"}], "}"}]}], "}"}]}], ";"}], 
+   "\n", 
+   RowBox[{"AssessEstimators", "[", 
+    RowBox[{
+    "mu", ",", " ", "sigma", ",", " ", "R", ",", " ", "\"\<d2.pdf\>\"", ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"32", ",", " ", "16"}], "}"}]}], "]"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Test", " ", "3"}], ":", " ", "n"}], "=", "3"}], ",", " ", 
+     RowBox[{"mu", "=", "0"}], ",", " ", 
+     RowBox[{"rho", "=", "0.25"}], ",", " ", 
+     RowBox[{"sigma", "=", "1"}], ",", " ", 
+     RowBox[{"Ks", "=", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "25"}], "}"}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"n", " ", "=", " ", "3"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mu", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sigma", " ", "=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"3", "/", "4"}], ")"}], "*", 
+       RowBox[{"IdentityMatrix", "[", "n", "]"}]}], " ", "+", " ", 
+      RowBox[{"1", "/", "4"}]}]}], ";"}], "\n", 
+   RowBox[{"AssessEstimators", "[", 
+    RowBox[{
+    "mu", ",", " ", "sigma", ",", " ", "R", ",", " ", "\"\<d3.pdf\>\"", ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"7", ",", "25"}], "}"}]}], "]"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Test", " ", "4"}], ":", " ", "n"}], "=", "4"}], ",", " ", 
+     RowBox[{"mu", "=", "0"}], ",", " ", 
+     RowBox[{"rho", " ", "=", " ", "0.1"}], ",", " ", 
+     RowBox[{"sigma", "=", "1"}], ",", " ", 
+     RowBox[{"Ks", "=", 
+      RowBox[{"{", 
+       RowBox[{"18", ",", "18"}], "}"}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"n", " ", "=", " ", "4"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mu", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sigma", " ", "=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"9", "/", "10"}], ")"}], "*", 
+       RowBox[{"IdentityMatrix", "[", "n", "]"}]}], " ", "+", " ", 
+      RowBox[{"1", "/", "10"}]}]}], ";"}], "\n", 
+   RowBox[{"AssessEstimators", "[", 
+    RowBox[{
+    "mu", ",", " ", "sigma", ",", " ", "R", ",", " ", "\"\<d4.pdf\>\"", ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"18", ",", " ", "18"}], "}"}]}], "]"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Test", " ", "5"}], ":", " ", "n"}], "=", "10"}], ",", " ", 
+     RowBox[{"mu", "=", "0"}], ",", " ", 
+     RowBox[{"rho", "=", "0"}], ",", " ", 
+     RowBox[{"sigma", "=", "0.1"}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"n", " ", "=", " ", "10"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mu", " ", "=", " ", 
+     RowBox[{"ConstantArray", "[", 
+      RowBox[{"0", ",", "n"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sigma", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"IdentityMatrix", "[", "n", "]"}], "/", "10"}]}], ";"}], "\n", 
+   RowBox[{"AssessEstimators", "[", 
+    RowBox[{
+    "mu", ",", " ", "sigma", ",", " ", "R", ",", " ", "\"\<d5.pdf\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"18", ",", "35"}], "}"}]}], "]"}], "\n", "\[IndentingNewLine]", 
+   
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Test", " ", "6"}], ":", " ", "n"}], "=", "20"}], ",", " ", 
+     RowBox[{"mu", "=", 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "2"}]}], ",", " ", 
+     RowBox[{"rho", "=", "0"}], ",", " ", 
+     RowBox[{"sigma", "=", 
+      RowBox[{"1", "/", "2"}]}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"n", " ", "=", " ", "20"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mu", " ", "=", " ", 
+     RowBox[{"ConstantArray", "[", 
+      RowBox[{
+       RowBox[{"-", "2"}], ",", "n"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sigma", " ", "=", " ", 
+     RowBox[{"IdentityMatrix", "[", "n", "]"}]}], ";"}], "\n", 
+   RowBox[{"AssessEstimators", "[", 
+    RowBox[{
+    "mu", ",", " ", "sigma", ",", " ", "R", ",", " ", "\"\<d6.pdf\>\"", ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"40", ",", "10"}], "}"}]}], "]"}], "\n"}]}]], "Input",
+ CellChangeTimes->{{3.656843452284944*^9, 3.656843455103633*^9}, 
+   3.656843666658428*^9, {3.656844109500049*^9, 3.656844151379581*^9}, 
+   3.6568442139059877`*^9, {3.6568446573784733`*^9, 3.656844660673011*^9}, {
+   3.656850816848404*^9, 3.65685081941426*^9}, {3.65685333026301*^9, 
+   3.656853353155136*^9}, {3.656855288336541*^9, 3.656855293144883*^9}, {
+   3.657280974663411*^9, 3.657280976915668*^9}, {3.657282399384678*^9, 
+   3.6572824071026163`*^9}, {3.657282648456586*^9, 3.657282670978621*^9}, {
+   3.6572843764707727`*^9, 3.657284379881772*^9}, {3.657284819936363*^9, 
+   3.6572848323721323`*^9}, {3.657286509820365*^9, 3.657286524485393*^9}, {
+   3.657286791561982*^9, 3.6572867922972918`*^9}, {3.657436458444497*^9, 
+   3.657436461233692*^9}, {3.657444943008247*^9, 3.657444960219531*^9}, {
+   3.657445224245016*^9, 3.657445224314991*^9}, {3.657446746297636*^9, 
+   3.657446750341477*^9}, {3.657446846662016*^9, 3.6574468551878977`*^9}, {
+   3.6574471398622637`*^9, 3.657447139979373*^9}, {3.6574475082253513`*^9, 
+   3.657447519217299*^9}, {3.65744880500056*^9, 3.6574488085345793`*^9}, {
+   3.657448878822989*^9, 3.657448884185402*^9}, {3.6574498340791283`*^9, 
+   3.657449841941094*^9}, {3.657450867959072*^9, 3.657450899422752*^9}, {
+   3.6574511517519712`*^9, 3.65745116922202*^9}, {3.65745210314432*^9, 
+   3.657452106226898*^9}, {3.6574533579148903`*^9, 3.657453360021327*^9}, {
+   3.657453391520396*^9, 3.657453393228574*^9}, {3.6574534262134933`*^9, 
+   3.6574534279346333`*^9}, {3.658142236640748*^9, 3.6581422744930277`*^9}, 
+   3.6682085265739155`*^9}],
+
+Cell[BoxData[
+ RowBox[{"AssessEstimatorsAgainstData", "[", 
+  RowBox[{"\"\<copula.pdf\>\"", ",", " ", 
+   RowBox[{"10", "^", "5"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"20", ",", "20"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.658073351539475*^9, 3.6580733536002073`*^9}, {
+  3.658078487561512*^9, 3.65807848867023*^9}, {3.658080196074877*^9, 
+  3.658080197981948*^9}, {3.658142219864469*^9, 3.658142226339353*^9}}]
+},
+WindowSize->{1424, 819},
+WindowMargins->{{5, Automatic}, {Automatic, 0}},
+Magnification->1.5,
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 866, 19, 162, "Input"],
+Cell[1427, 41, 8238, 222, 1003, "Input"],
+Cell[9668, 265, 427, 8, 45, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -40,15 +40,12 @@ LogSkewNormalDistribution[\[Mu]_,\[Sigma]_,\[Alpha]_] := TransformedDistribution
 
 (*****************************************Normal estimators of the density*******************************************)
 (*Numerically integrate the convolution equation (for n\[LessEqual]4 or so). *)
-MultiLNPDF[\[Mu]_,\[CapitalSigma]_,xs_]:=(rvs=Array[rv,Round[Length[\[Mu]]]];
-PDF[TransformedDistribution[Exp[rvs],rvs\[Distributed]MultinormalDistribution[\[Mu],\[CapitalSigma]]],xs]);
-
 CDFConvReg[s_,n_]:=(ys=Table[yy[i],{i,n}];ParametricRegion[{ys,Total[ys] <= s},Evaluate[Map[{#,0,s}&,ys]]]);
 PDFConvReg[s_,n_]:=(ys=Table[yy[i],{i,n}];ParametricRegion[{ys,Total[ys] == s},Evaluate[Map[{#,0,s}&,ys]]]);
 
 ConvolutionEstimator[\[Mu]_,\[CapitalSigma]_]:=Module[{n,x},
 n=Length[\[Mu]]; x=Array[xx,n];
-Function[{s},NIntegrate[(1/Sqrt[n])*MultiLNPDF[\[Mu],\[CapitalSigma],x],x\[Element]PDFConvReg[s,n],PrecisionGoal->If[n<4,4,4]]]];
+Function[{s},NIntegrate[(1/Sqrt[n])*PDF[LogMultinormalDistribution[\[Mu],\[CapitalSigma]],x],x\[Element]PDFConvReg[s,n],PrecisionGoal->If[n<4,4,4]]]];
 
 GeneralConvolutionEstimator[Dist_]:=Module[{n,x},(*Print["Constructing ConvolutionEstimator."]; ,PrecisionGoal->8 *)
 n=Length[Flatten[RandomVariate[Dist,1]]]; x=Array[xx,n];
@@ -264,13 +261,12 @@ LegList = {"\!\(\*SubscriptBox[OverscriptBox[\(f\), \(^\)], \(FW\)]\)","\!\(\*Su
 If[n<= 4,
 	DensPlot = Plot[{fFW[x],fLSKN[x],fCondMC[x],fHermite[x],fLaguerre[x],fConv[x]},{x,0,q2},
 		PlotPoints-> 20,MaxRecursion->2,ImageSize->Medium, 
-		LabelStyle->{FontSize->13}, AspectRatio->0.3];
+		LabelStyle->{FontSize->13}, AspectRatio->0.3, PlotTheme->"Monochrome"];
 	
 	ErrPlot = Plot[{fFW[x]-fConv[x],fLSKN[x]-fConv[x],fCondMC[x]-fConv[x],fHermite[x]-fConv[x],fLaguerre[x]-fConv[x]},{x,0,q2},
-		PlotPoints-> 40,MaxRecursion->2,ImageSize->Medium, LabelStyle->{FontSize->13}, AspectRatio->0.3];
-
-	Export[plotName, Legended[GraphicsColumn[{DensPlot, ErrPlot}],
-		LineLegend[ColorData[97,"ColorList"], LegList]]];
+		PlotPoints-> 40,MaxRecursion->2,ImageSize->Medium, LabelStyle->{FontSize->13}, AspectRatio->0.3,PlotTheme->"Monochrome"];
+	(*,LineLegend[ColorData[97,"ColorList"],*)
+	Export[plotName, Legended[GraphicsColumn[{DensPlot, ErrPlot}], LineLegend["DefaultPlotStyle" /. (Method/.Charting`ResolvePlotTheme["Monochrome" ,Plot]),LegList]]];
 	Print[plotName];
 
 	If[Verbose,Print["Calculating the loss/error values for these estimators."]];
@@ -285,7 +281,7 @@ If[n<= 4,
 	Export[plotName,
 		Plot[{fFW[x],fLSKN[x],fCondMC[x],fHermite[x],fLaguerre[x]},{x,0,q2},
 		PlotLegends->LegList,PlotPoints-> 20,MaxRecursion->2,ImageSize->Medium, 
-		LabelStyle->{FontSize->12}, AspectRatio->0.3,PlotRange->All]];
+		LabelStyle->{FontSize->12}, AspectRatio->0.3,PlotRange->All,PlotTheme->"Monochrome"]];
 	Print[plotName]
 ];
 ];
@@ -311,18 +307,17 @@ q2=2*Total[Mean[Dist]];
 
 LegList = {"\!\(\*SubscriptBox[OverscriptBox[\(f\), \(^\)], \(N\)]\)",
 "\!\(\*SubscriptBox[OverscriptBox[\(f\), \(^\)], \(\[CapitalGamma]\)]\)","f"};
-
 	DensPlot = Plot[{fHermite[x],fLaguerre[x],f[x]},{x,0,q2},
 		PlotPoints-> 20,MaxRecursion->2,ImageSize->Medium, 
-		LabelStyle->{FontSize->13}, AspectRatio->0.3];
-	
+		LabelStyle->{FontSize->13}, AspectRatio->0.3, PlotTheme->"Monochrome"];
+	Print[DensPlot];
 
 	If[Verbose,Print["Making error plot."]];
 	ErrPlot = Plot[{fHermite[x]-f[x],fLaguerre[x]-f[x]},{x,0,q2},
-		PlotPoints-> 20,MaxRecursion->2,ImageSize->Medium, LabelStyle->{FontSize->13}, AspectRatio->0.3];
-
-	Export[plotName, Legended[GraphicsColumn[{DensPlot, ErrPlot}],
-		LineLegend[ColorData[97,"ColorList"], LegList]]];
+		PlotPoints-> 20,MaxRecursion->2,ImageSize->Medium, LabelStyle->{FontSize->13}, AspectRatio->0.3, PlotTheme->"Monochrome"];
+	
+	Export[plotName, Legended[GraphicsColumn[{DensPlot, ErrPlot}], LineLegend["DefaultPlotStyle" /. (Method/.Charting`ResolvePlotTheme["Monochrome" ,Plot]),LegList]]];
+	
 	Print[plotName];
 
 	If[Verbose,Print["Calculating the loss/error values for these estimators."]];
